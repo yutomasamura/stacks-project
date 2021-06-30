@@ -705,7 +705,7 @@ for some choice of the fibre products $U_i \times_U V$ for $i \in I$.
 
 \begin{remark}
 \label{remark-no-big-sites}
-(On set theoretic issues -- skip on a first reading.)
+(On set-theoretic issues -- skip on a first reading.)
 The main reason for introducing sites is to study the
 category of sheaves on a site, because it is the generalization
 of the category of sheaves on a topological space that has
@@ -2976,7 +2976,7 @@ and show that this is a quasi-inverse to $i_*$. Details omitted.
 
 \begin{remark}
 \label{remark-morphism-topoi-big}
-(Set theoretical issues related to morphisms of topoi. Skip
+(Set-theoretical issues related to morphisms of topoi. Skip
 on a first reading.)
 A morphism of topoi as defined above is not a set but a class.
 In other words it is given by a mathematical formula rather
@@ -3048,7 +3048,7 @@ Let $u : \mathcal{T}_H \to \mathcal{T}_G$ be the functor which assigns
 to a $H$-set $U$ the $G$-set $U_\varphi$ which has the same underlying
 set but $G$ action defined by $g \cdot u = \varphi(g)u$.
 It is clear that $u$ commutes with finite limits and is
-continuous\footnote{Set theoretical remark: First choose $\mathcal{T}_H$.
+continuous\footnote{Set-theoretical remark: First choose $\mathcal{T}_H$.
 Then choose $\mathcal{T}_G$ to contain $u(\mathcal{T}_H)$ and such that
 every covering in $\mathcal{T}_H$ corresponds to a covering in
 $\mathcal{T}_G$. This is possible by
@@ -3183,7 +3183,7 @@ We leave it to the reader to make an example where (2) holds but not (3).
 \end{proof}
 
 \noindent
-Here is the topos theoretic meaning of a quasi-compact object.
+Here is the topos-theoretic meaning of a quasi-compact object.
 
 \begin{lemma}
 \label{lemma-quasi-compact}
@@ -4684,7 +4684,7 @@ where $\mathcal{H}_i = \coprod h_{V_{i, j}}^\#$
 is a coproduct with $V_{i, j} \in E$.
 This is possible by assumption (2), see
 Lemma \ref{lemma-sheaf-coequalizer-representable}
-(for those worried about set theoretical issues, note that
+(for those worried about set-theoretical issues, note that
 the construction given in
 Lemma \ref{lemma-sheaf-coequalizer-representable} is canonical).
 Define $f_!(\mathcal{H})$ to be the sheaf on $\mathcal{C}$
@@ -8353,7 +8353,7 @@ $$
 \Mor_{\Sh(\mathcal{C})}(g^{-1}\mathcal{G}, \mathcal{F})
 }
 $$
-commutes. Because of set theoretic difficulties (see
+commutes. Because of set-theoretic difficulties (see
 Remark \ref{remark-morphism-topoi-big})
 we do not obtain a 2-category of topoi. But we can still define
 horizontal and vertical composition and show that the axioms of a strict
@@ -8993,7 +8993,7 @@ Let $f$ be a morphism of topoi. The functor $f_*$ in general is only
 left exact. There are many additional conditions one can impose on this
 functor to single out particular classes of morphisms of topoi.
 We collect them here and note some of the logical dependencies.
-Some parts of the following lemma are purely category theoretical (i.e.,
+Some parts of the following lemma are purely category-theoretical (i.e.,
 they do not depend on having a morphism of topoi, just having a pair
 of adjoint functors is enough).
 
@@ -9354,7 +9354,7 @@ of the category $\Sh(\mathcal{C})$ of sheaves on $\mathcal{C}$.
 \begin{definition}
 \label{definition-empty}
 Let $\mathcal{C}$ be a site. We say an object $U$ of $\mathcal{C}$
-is {\it sheaf theoretically empty} if $\emptyset^\# \to h_U^\#$
+is {\it sheaf-theoretically empty} if $\emptyset^\# \to h_U^\#$
 is an isomorphism of sheaves.
 \end{definition}
 
@@ -9366,14 +9366,14 @@ The following lemma makes this notion more explicit.
 Let $\mathcal{C}$ be a site. Let $U$ be an object of $\mathcal{C}$.
 The following are equivalent:
 \begin{enumerate}
-\item $U$ is sheaf theoretically empty,
+\item $U$ is sheaf-theoretically empty,
 \item $\mathcal{F}(U)$ is a singleton for each sheaf $\mathcal{F}$,
 \item $\emptyset^\#(U)$ is a singleton,
 \item $\emptyset^\#(U)$ is nonempty, and
 \item the empty family is a covering of $U$ in $\mathcal{C}$.
 \end{enumerate}
-Moreover, if $U$ is sheaf theoretically empty, then for any morphism
-$U' \to U$ of $\mathcal{C}$ the object $U'$ is sheaf theoretically empty.
+Moreover, if $U$ is sheaf-theoretically empty, then for any morphism
+$U' \to U$ of $\mathcal{C}$ the object $U'$ is sheaf-theoretically empty.
 \end{lemma}
 
 \begin{proof}
@@ -9406,7 +9406,7 @@ $\{V_j \to u(U)\}_{j \in J}$ there exists a covering
 $\{U_i \to U\}_{i \in I}$ in $\mathcal{C}$ such that
 for each $i$ in $I$ we have at least one of the following two conditions
 \begin{enumerate}
-\item $u(U_i)$ is sheaf theoretically empty, or
+\item $u(U_i)$ is sheaf-theoretically empty, or
 \item the morphism $u(U_i) \to u(U)$ factors through $V_j$ for some $j \in J$.
 \end{enumerate}
 \end{definition}
@@ -9429,7 +9429,7 @@ Let $\mathcal{C}$, $\mathcal{D}$ be sites.
 Let $u : \mathcal{C} \to \mathcal{D}$ be a functor.
 Assume that $u$ is continuous and almost cocontinuous.
 Let $\mathcal{G}$ be a presheaf on $\mathcal{D}$ such that $\mathcal{G}(V)$ is
-a singleton whenever $V$ is sheaf theoretically empty.
+a singleton whenever $V$ is sheaf-theoretically empty.
 Then $(u^p\mathcal{G})^\# = u^p(\mathcal{G}^\#)$.
 \end{lemma}
 
@@ -9457,7 +9457,7 @@ $u(\mathcal{U}) = \{u(U_i) \to u(U)\}_{i \in I}$. The condition
 that $u$ is continuous means that each $u(\mathcal{U})$ is a covering.
 Write $I = I_1 \amalg I_2$, where
 $$
-I_2 = \{i \in I \mid u(U_i)\text{ is sheaf theoretically empty}\}
+I_2 = \{i \in I \mid u(U_i)\text{ is sheaf-theoretically empty}\}
 $$
 Then $u(\mathcal{U})' = \{u(U_i) \to u(U)\}_{i \in I_1}$ is still a covering of
 because each of the other pieces can be covered by the empty family
