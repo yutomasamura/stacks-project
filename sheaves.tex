@@ -1401,7 +1401,7 @@ presheaves are exactly the surjective (resp.\ injective) maps
 of presheaves.
 \item Epimorphisms (resp.\ monomorphisms) in the category of
 sheaves are exactly the surjective (resp.\ injective) maps
-of sheaves, and are exactly those maps with are surjective
+of sheaves, and are exactly those maps which are surjective
 (resp.\ injective) on all the stalks.
 \item The sheafification of a surjective (resp.\ injective)
 morphism of presheaves of sets is surjective (resp.\ injective).
@@ -2251,10 +2251,10 @@ functorially in $\mathcal{F} \in \Sh(X)$ and $\mathcal{G} \in \Sh(Y)$.
 \end{lemma}
 
 \begin{proof}
-A map of sheaves $a : \mathcal{G} \to f_\star\mathcal{F}$
+A map of sheaves $a : \mathcal{G} \to f_*\mathcal{F}$
 is by definition a rule which to each open $V$ of $Y$ assigns
-a map $a_V : \mathcal{G}(V) \to f_\star\mathcal{F}(V)$
-and we have $f_\star\mathcal{F}(V) = \mathcal{F}(f^{-1}(V))$.
+a map $a_V : \mathcal{G}(V) \to f_*\mathcal{F}(V)$
+and we have $f_*\mathcal{F}(V) = \mathcal{F}(f^{-1}(V))$.
 Thus at least the "data" corresponds exactly to what you need
 for an $f$-map $\xi$ from $\mathcal{G}$ to $\mathcal{F}$.
 To show that (1) and (2) are in bijection is that the fact that
@@ -3027,8 +3027,9 @@ on $X$. And if $f : X \to Y$ is a ``suitable'' map, then by composition
 a function on $Y$ turns into a function on $X$.
 Thus there should be a natural
 $f$-map from $\mathcal{O}_Y$ to $\mathcal{O}_X$
-See Definition \ref{definition-f-map}, and the remarks in
-previous sections for terminology. For a precise example, see
+See Definition \ref{definition-f-map} and
+Lemma \ref{lemma-f-map}.
+For a precise example, see
 Example \ref{example-continuous-map-ringed} below. Here is the
 relevant abstract definition.
 
@@ -3198,7 +3199,8 @@ a sheaf of $\mathcal{O}_Y$-modules $\mathcal{G}$ on $Y$,
 the notion of an {\it $f$-map $\varphi : \mathcal{G} \to \mathcal{F}$
 of sheaves of modules} makes sense. We can just define
 it as an $f$-map $\varphi : \mathcal{G} \to \mathcal{F}$
-of abelian sheaves such that for all open $V \subset Y$ the map
+of abelian sheaves (see Definition \ref{definition-f-map} and
+Lemma \ref{lemma-f-map}) such that for all open $V \subset Y$ the map
 $$
 \mathcal{G}(V) \longrightarrow \mathcal{F}(f^{-1}V)
 $$
@@ -3373,7 +3375,7 @@ $$
 $$
 \item Let $x \in X$ be a point. In general the stalk of
 $\lim_i \mathcal{F}_i$ at $x$ is not equal to
-the limit of the stalks. But if the diagram category is finite
+the limit of the stalks. But if the index category is finite
 then it is the case. In other words, the stalk functor is
 left exact (see Categories, Definition \ref{categories-definition-exact}).
 \item Let $x \in X$. We always have
@@ -3412,7 +3414,7 @@ $$
 $$
 \item Let $x \in X$ be a point. In general the stalk of
 $\lim_i \mathcal{F}_i$ at $x$ is not equal to
-the limit of the stalks. But if the diagram category is finite
+the limit of the stalks. But if the index category is finite
 then it is the case. In other words, the stalk functor is
 left exact.
 \item Let $x \in X$. We always have

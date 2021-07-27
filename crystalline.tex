@@ -1523,8 +1523,8 @@ or simply $\text{CRIS}(X/S)$.
 
 \noindent
 For any $(U, T, \delta)$ in $\text{CRIS}(X/S)$
-we have that $p$ is locally nilpotent on $T$, see discussion after
-Definition \ref{definition-divided-power-thickening}.
+we have that $p$ is locally nilpotent on $T$, see discussion preceding
+Situation \ref{situation-global}.
 A good way to visualize all the data associated to $(U, T, \delta)$
 is the commutative diagram
 $$
@@ -3185,34 +3185,34 @@ an equivalence of categories of pairs $(M, \nabla)$ satisfying
 (\ref{item-integrable}), and (\ref{item-topologically-quasi-nilpotent})
 over $D$ and pairs $(M', \nabla')$  satisfying
 (\ref{item-complete}), (\ref{item-connection}),
-(\ref{item-integrable}), and (\ref{item-topologically-quasi-nilpotent})
-over $D'$. In particular, the equivalence of categories of
+(\ref{item-integrable}), and
+(\ref{item-topologically-quasi-nilpotent})\footnote{This condition
+is tricky to formulate for $(M', \nabla')$ over $D'$. See proof.} over $D'$.
+In particular, the equivalence of categories of
 Proposition \ref{proposition-crystals-on-affine}
 also holds for the corresponding functor towards pairs over $D'$.
 \end{lemma}
 
 \begin{proof}
-Before we embark on the proof we briefly explain how to formulate
-condition (\ref{item-topologically-quasi-nilpotent}) for the case of
-pairs $(M', \nabla')$ over $D'$. Since $A \to P'$ is smooth
-the $P'$-module $\Omega_{P'/A}$ is finite projective. Thus we can
-choose a map $\Omega_{P'/A} \to \bigoplus_{i = 1, \ldots, n} P'$
-wich identifies $\Omega_{P'/A}$ with a direct summand of the target.
-This determines a map $\Omega_{D'} \to \bigoplus_{i = 1, \ldots, n} D'$
-identifying the source with a direct summand of the target.
-Thus for $m' \in M'$ we can write $\nabla'(m') = \sum \theta'_i(m')$
-with $\theta'_i(m') \in D'$. The topogical quasi-nilpotence of
-$\nabla'$ means: for any $m' \in M'$ there are only finitely
-many pairs $(i, k)$ such that $(\theta'_i)^k(m') \not \in pM'$.
-(Since in this case there are only finitely many $i$ this just means
-that $\theta_i^k(m') \in pM'$ for all $k \gg 0$.)
+First, suppose that $P' = A[y_1, \ldots, y_m]$ is a polynomial algebra
+over $A$. In this case, we can find ring maps $P \to P'$ and $P' \to P$
+compatible with the maps to $C$ which induce maps $a : D \to D'$ and
+$b : D' \to D$ as in the lemma. Using completed base change along $a$
+and $b$ we obtain functors between the categories of modules with connection
+satisfying properties (\ref{item-complete}), (\ref{item-connection}),
+(\ref{item-integrable}), and (\ref{item-topologically-quasi-nilpotent})
+simply because these these categories are equivalent to the category
+of quasi-coherent crystals by Proposition \ref{proposition-crystals-on-affine}
+(and this equivalence is compatible with the base change operation as shown
+in the proof of the proposition).
 
 \medskip\noindent
-We can pick the map $P = A[x_i] \to C$ such that it factors through
-a surjection of $A$-algebras $P \to P'$ (we may have to increase the
-number of variables in $P$ to do this). Hence we obtain a surjective
-map $a : D \to D'$ by functoriality of divided power envelopes and
-completion. Pick $e$ large enough so that $D_e$ is a divided power
+Proof for general smooth $P'$.
+By the first paragraph of the proof we may assume $P = A[y_1, \ldots, y_m]$
+which gives us a surjection $P \to P'$ compatible with the map to $C$.
+Hence we obtain a surjective map $a : D \to D'$ by functoriality of
+divided power envelopes and completion. Pick $e$ large enough so that
+$D_e$ is a divided power
 thickening of $C$ over $A$. Then $D_e \to C$ is a surjection whose kernel
 is locally nilpotent, see Divided Power Algebra, Lemma \ref{dpa-lemma-nil}.
 Setting $D'_e = D'/p^eD'$
@@ -3237,27 +3237,37 @@ map $D_{P', \gamma}(J') \to D$. As $D$ is $p$-adically complete we
 obtain $b : D' \to D$ such that $a \circ b = \text{id}_{D'}$.
 
 \medskip\noindent
-Consider the base change functor
+Consider the base change functors
 $$
-(M, \nabla) \longmapsto
-(M \otimes^\wedge_D D', \nabla')
+F : (M, \nabla) \longmapsto
+(M \otimes^\wedge_{D, a} D', \nabla')
+\quad\text{and}\quad
+G : (M', \nabla') \longmapsto
+(M' \otimes^\wedge_{D', b} D, \nabla)
 $$
-from pairs for $D$ to pairs for $D'$, see
-Remark \ref{remark-base-change-connection}.
-Similarly, we have the base change functor corresponding to the divided
-power homomorphism $D' \to D$. To finish the proof of the lemma we have
-to show that the base change for the compositions $b \circ a : D \to D$
-and $a \circ b : D' \to D'$ are isomorphic to the identity functor.
-This is clear for the second as $a \circ b = \text{id}_{D'}$.
-To prove it for the first, we use the functorial isomorphism
+on modules with connections satisfying (\ref{item-complete}),
+(\ref{item-connection}), and (\ref{item-integrable}).
+See Remark \ref{remark-base-change-connection}.
+Since $a \circ b = \text{id}_{D'}$ we see that
+$F \circ G$ is the identity functor. Let us say that $(M', \nabla')$
+has property (\ref{item-topologically-quasi-nilpotent}) if this
+is true for $G(M', \nabla')$. A formal argument now shows that to finish
+the proof it suffices to show that $G(F(M, \nabla))$ is isomorphic
+to $(M, \nabla)$ in the case that $(M, \nabla)$ satisfies all four
+conditions (\ref{item-complete}), (\ref{item-connection}),
+(\ref{item-integrable}), and (\ref{item-topologically-quasi-nilpotent}).
+For this we use the functorial isomorphism
 $$
 c_{\text{id}_D, b \circ a} :
 M \otimes_{D, \text{id}_D} D
 \longrightarrow
 M \otimes_{D, b \circ a} D
 $$
-of the proof of Proposition \ref{proposition-crystals-on-affine}.
-The only thing to prove is that these maps are horizontal, which we omit.
+of the proof of Proposition \ref{proposition-crystals-on-affine}
+(which requires the topological quasi-nilpotency of $\nabla$
+which we have assumed).
+It remains to prove that this map is horizontal, i.e.,
+compatible with connections, which we omit.
 
 \medskip\noindent
 The last statement of the proof now follows.
@@ -3338,15 +3348,36 @@ $$
 \end{lemma}
 
 \begin{proof}
-We will use without further mention that $\mathcal{C}$ and $\text{Cris}(X/S)$
-have products and fibre products, see
-Lemma \ref{lemma-divided-power-thickening-fibre-products}.
-Note that the inclusion functor $u : \mathcal{C} \to \text{Cris}(X/S)$
-is fully faithful, continuous and commutes with products and fibre products.
+Denote $\text{AffineCris}(X/S)$ the fully subcategory of $\text{Cris}(X/S)$
+consisting of those objects $(U, T, \delta)$ with $U$ and $T$ affine.
+We turn this into a site by saying a family of morphisms
+$\{(U_i, T_i, \delta_i) \to (U, T, \delta)\}_{i \in I}$ of
+$\text{AffineCris}(X/S)$ is a covering if and only if it is a covering
+of $\text{Cris}(X/S)$. With this definition the inclusion functor
+$$
+\text{AffineCris}(X/S) \longrightarrow \text{Cris}(X/S)
+$$
+is a special cocontinuous functor as defined in
+Sites, Definition \ref{sites-definition-special-cocontinuous-functor}.
+The proof of this is exactly the same as the proof of
+Topologies, Lemma \ref{topologies-lemma-affine-big-site-Zariski}.
+Thus we see that the topos of sheaves on $\text{Cris}(X/S)$
+is the same as the topos of sheaves on $\text{AffineCris}(X/S)$
+via restriction by the displayed inclusion functor.
+Therefore we have to prove the corresponding statement for the
+inclusion $\mathcal{C} \subset \text{AffineCris}(X/S)$.
+
+\medskip\noindent
+We will use without further mention that $\mathcal{C}$ and
+$\text{AffineCris}(X/S)$ have products and fibre products
+(details omitted, see
+Lemma \ref{lemma-divided-power-thickening-fibre-products}).
+The inclusion functor $u : \mathcal{C} \to \text{AffineCris}(X/S)$
+is fully faithful, continuous, and commutes with products and fibre products.
 We claim it defines a morphism of ringed sites
 $$
 f :
-(\text{Cris}(X/S), \mathcal{O}_{X/S})
+(\text{AffineCris}(X/S), \mathcal{O}_{X/S})
 \longrightarrow
 (\Sh(\mathcal{C}), \mathcal{O}_{X/S}|_\mathcal{C})
 $$
@@ -3356,8 +3387,11 @@ so the categories $\mathcal{I}^u_{(U, T, \delta)}$ are disjoint unions
 of directed categories (by Sites, Lemma \ref{sites-lemma-almost-directed} and
 Categories, Lemma \ref{categories-lemma-split-into-directed}). Hence it
 suffices to show that $\mathcal{I}^u_{(U, T, \delta)}$ is connected.
-Nonempty follows from Lemma \ref{lemma-set-generators}
-and connectedness follows from the fact that $\mathcal{C}$ has products
+Nonempty follows from Lemma \ref{lemma-set-generators}: since $U$ and $T$
+are affine that lemma says there is at least one object
+$(X, T', \delta')$ of $\mathcal{C}$ and a morphism
+$(U, T, \delta) \to (X, T', \delta')$ of divided power thickenings.
+Connectedness follows from the fact that $\mathcal{C}$ has products
 and that $u$ commutes with them (compare with the proof of
 Sites, Lemma \ref{sites-lemma-directed}).
 
@@ -3366,8 +3400,13 @@ Note that $f_*\mathcal{F} = \mathcal{F}|_\mathcal{C}$. Hence the lemma
 follows if $R^pf_*\mathcal{F} = 0$ for $p > 0$, see
 Cohomology on Sites, Lemma \ref{sites-cohomology-lemma-apply-Leray}. By
 Cohomology on Sites, Lemma \ref{sites-cohomology-lemma-higher-direct-images}
-it suffices to show that $H^p((X, T, \delta), \mathcal{F}) = 0$ for all
-$(X, T, \delta)$. This follows from Lemma \ref{lemma-vanishing-lqc}.
+it suffices to show that
+$H^p(\text{AffineCris}(X/S)/(X, T, \delta), \mathcal{F}) = 0$
+for all $(X, T, \delta)$.
+This follows from Lemma \ref{lemma-vanishing-lqc} because the
+topos of the site $\text{AffineCris}(X/S)/(X, T, \delta)$
+is equivalent to the topos of the site
+$\text{Cris}(X/S)/(X, T, \delta)$ used in the lemma.
 \end{proof}
 
 \begin{lemma}
@@ -3684,7 +3723,7 @@ explained in Example \ref{example-integrate}.
 
 \begin{lemma}
 \label{lemma-relative-poincare}
-Let $A$ be a ring. Let $(B, J, \delta)$ be a divided power ring.
+Let $A$ be a ring. Let $(B, I, \delta)$ be a divided power ring.
 Let $P = B\langle x_i \rangle$ be a divided power polynomial
 ring over $B$ with divided power ideal $J = IP + B\langle x_i \rangle_{+}$
 as usual. Let $M$ be a $B$-module endowed with an integrable connection
@@ -4970,7 +5009,7 @@ $\text{d}(a) = 0$,
 \label{item-direct-sum}
 $\Omega' = B' \otimes_B \Omega \oplus B'\text{d}z$; we write
 $\text{d}(f) = \text{d}_1(f) + \partial_z(f) \text{d}z$
-with $\text{d}_1(f) \in B' \otimes \Omega$ and $\partial_z(f) \in N'$
+with $\text{d}_1(f) \in B' \otimes \Omega$ and $\partial_z(f) \in B'$
 for all $f \in B'$,
 \item
 \label{item-theta-linear}

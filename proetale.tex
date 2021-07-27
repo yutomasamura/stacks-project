@@ -3746,57 +3746,111 @@ $$
 \epsilon : X_\proetale \longrightarrow X_\etale
 $$
 This follows from Sites, Proposition \ref{sites-proposition-get-morphism}.
-A fundamental fact about this comparison morphism is the following.
 
 \begin{lemma}
-\label{lemma-limit-pullback}
-Let $X$ be a scheme. Let $Y = \lim Y_i$ be the limit of a directed inverse
-system of quasi-compact and quasi-separated objects of $X_\proetale$
-with affine transition morphisms. For any sheaf $\mathcal{F}$
-on $X_\etale$ we have
-$\epsilon^{-1}\mathcal{F}(Y) = \colim \mathcal{F}(Y_i)$.
+\label{lemma-describe-pullback-from-etale}
+With notation as above. Let $\mathcal{F}$ be a sheaf on $X_\etale$.
+The rule
+$$
+X_\proetale \longrightarrow \textit{Sets},\quad
+(f : Y \to X) \longmapsto \Gamma(Y_\etale, f_\etale^{-1}\mathcal{F})
+$$
+is a sheaf and is equal to $\epsilon^{-1}\mathcal{F}$.
+Here $f_\etale : Y_\etale \to X_\etale$ is the morphism of
+small \'etale sites constructed in
+\'Etale Cohomology, Section \ref{etale-cohomology-section-functoriality}.
 \end{lemma}
 
 \begin{proof}
-Let $\mathcal{F} = h_U$ be a representable sheaf on $X_\etale$
-with $U$ an object of $X_\etale$. In this case
-$\epsilon^{-1}h_U = h_{u(U)}$ where $u(U)$ is $U$ viewed as an object of
-$X_\proetale$ (Sites, Lemma \ref{sites-lemma-pullback-representable-sheaf}).
-Then
-\begin{align*}
-(\epsilon^{-1}h_U)(Y)
-& = h_{u(U)}(Y) \\
-& = \Mor_X(Y, U) \\
-& = \colim \Mor_X(Y_i, U) \\
-& = \colim h_U(Y_i)
-\end{align*}
-Here the only nonformal equality is the $3$rd which holds
-by Limits, Proposition
-\ref{limits-proposition-characterize-locally-finite-presentation}.
-Hence the lemma holds for every representable sheaf. Since every sheaf
-is a coequalizer of a map of coproducts of representable sheaves
-(Sites, Lemma \ref{sites-lemma-sheaf-coequalizer-representable})
-we obtain the result in general.
+By Lemma \ref{lemma-recognize-proetale-covering} any pro-\'etale covering
+is an fpqc covering. Hence the formula defines a sheaf on $X_\proetale$
+by \'Etale Cohomology, Lemma \ref{etale-cohomology-lemma-describe-pullback}.
+Let $a : \Sh(X_\etale) \to \Sh(X_\proetale)$ be the functor
+sending $\mathcal{F}$ to the sheaf given by the formula in the lemma.
+To show that $a = \epsilon^{-1}$ it suffices to show that $a$ is a
+left adjoint to $\epsilon_*$.
+
+\medskip\noindent
+Let $\mathcal{G}$ be an object of $\Sh(X_\proetale)$.
+Recall that $\epsilon_*\mathcal{G}$ is simply given by the restriction of
+$\mathcal{G}$ to the full subcategory $X_\etale$.
+Let $f : Y \to X$ be an object of $X_\proetale$.
+We view $Y_\etale$ as a subcategory of $X_\proetale$.
+The restriction maps of the sheaf $\mathcal{G}$ define a map
+$$
+\epsilon_*\mathcal{G} = \mathcal{G}|_{X_\etale}
+\longrightarrow
+f_{\etale, *}(\mathcal{G}|_{Y_\etale})
+$$
+Namely, for $U$ in $X_\etale$ the value of
+$f_{\etale, *}(\mathcal{G}|_{Y_\etale})$ on $U$
+is $\mathcal{G}(Y \times_X U)$ and there is a restriction
+map $\mathcal{G}(U) \to \mathcal{G}(Y \times_X U)$.
+By adjunction this determines a map
+$$
+f_\etale^{-1}(\epsilon_*\mathcal{G}) \to \mathcal{G}|_{Y_\etale}
+$$
+Putting these together for all $f : Y \to X$ in $X_\proetale$
+we obtain a canonical map $a(\epsilon_*\mathcal{G}) \to \mathcal{G}$.
+
+\medskip\noindent
+Let $\mathcal{F}$ be an object of $\Sh(X_\etale)$. It is immediately
+clear that $\mathcal{F} = \epsilon_*a(\mathcal{F})$.
+
+\medskip\noindent 
+We claim the maps $\mathcal{F} \to \epsilon_*a(\mathcal{F})$ and
+$a(\epsilon_*\mathcal{G}) \to \mathcal{G}$
+are the unit and counit of the adjunction (see
+Categories, Section \ref{categories-section-adjoint}).
+To see this it suffices to show that the corresponding maps
+$$
+\Mor_{\Sh(X_\proetale)}(a(\mathcal{F}), \mathcal{G}) \to
+\Mor_{\Sh(X_\etale)}(\mathcal{F}, \epsilon^{-1}\mathcal{G})
+$$
+and
+$$
+\Mor_{\Sh(X_\etale)}(\mathcal{F}, \epsilon^{-1}\mathcal{G}) \to
+\Mor_{\Sh(X_\proetale)}(a(\mathcal{F}), \mathcal{G})
+$$
+are mutually inverse. We omit the detailed verification.
 \end{proof}
 
 \begin{lemma}
 \label{lemma-fully-faithful}
 Let $X$ be a scheme. For every sheaf $\mathcal{F}$ on $X_\etale$
 the adjunction map $\mathcal{F} \to \epsilon_*\epsilon^{-1}\mathcal{F}$ is an
-isomorphism.
+isomorphism, i.e., $\epsilon^{-1}\mathcal{F}(U) = \mathcal{F}(U)$
+for $U$ in $X_\etale$.
 \end{lemma}
 
 \begin{proof}
-Suppose that $U$ is a quasi-compact and quasi-separated scheme \'etale
-over $X$. Then
+Follows immediately from the description of
+$\epsilon^{-1}$ in Lemma \ref{lemma-describe-pullback-from-etale}.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-limit-pullback}
+Let $X$ be a scheme. Let $Y = \lim Y_i$ be the limit of a directed inverse
+system of quasi-compact and quasi-separated objects of $X_\proetale$
+with affine transition morphisms. For any sheaf $\mathcal{F}$ on $X_\etale$
+we have
 $$
-\epsilon_*\epsilon^{-1}\mathcal{F}(U) =
-\epsilon^{-1}\mathcal{F}(U) =
-\mathcal{F}(U)
+\epsilon^{-1}\mathcal{F}(Y) = \colim \epsilon^{-1}\mathcal{F}(Y_i)
 $$
-the second equality by (a special case of) Lemma \ref{lemma-limit-pullback}.
-Since every object of $X_\etale$
-has a covering by quasi-compact and quasi-separated objects we conclude.
+Moreover, if $Y_i$ is in $X_\etale$ we have
+$\epsilon^{-1}\mathcal{F}(Y) = \colim \mathcal{F}(Y_i)$.
+\end{lemma}
+
+\begin{proof}
+By the description of $\epsilon^{-1}\mathcal{F}$ in
+Lemma \ref{lemma-describe-pullback-from-etale}, the displayed formula
+is a special case of \'Etale Cohomology, Theorem
+\ref{etale-cohomology-theorem-colimit}.
+(When $X$, $Y$, and the $Y_i$ are all affine, see
+the easier to parse \'Etale Cohomology, Lemma
+\ref{etale-cohomology-lemma-directed-colimit-cohomology}.)
+The final statement follows immediately from this
+and Lemma \ref{lemma-fully-faithful}.
 \end{proof}
 
 \begin{lemma}
@@ -3992,7 +4046,7 @@ $$
 \epsilon^{-1}\mathcal{G}(U \times_X U \times_X U) =
 \colim \mathcal{G}(U_i \times_X U_i \times_X U_i)
 $$
-hence we can find an $i$ and an element $g_i \in \mathcal{G}(U_i)$
+hence we can find an $i$ and an element $g_i \in \mathcal{G}(U_i \times_X U_i)$
 mapping to $g$ satisfying the cocycle condition.
 The cocycle $g_i$ then defines a torsor for $\mathcal{G}$ on
 $X_\etale$ whose pullback is isomorphic to $\mathcal{F}$
@@ -4152,13 +4206,10 @@ then (1) and (2) hold for $K_n$ as an object of $D(X_\proetale, \Lambda/I^n)$.
 \end{lemma}
 
 \begin{proof}
-For assertion (2) this follows from the more general
+Assertion (2) for $K_n$ follows from the more general
 Cohomology on Sites, Lemma \ref{sites-cohomology-lemma-bounded}.
-The second assertion follows from the fact that
-the essential image of $\epsilon^{-1}$ is a triangulated
-subcategory of $D^+(X_\proetale, \Lambda/I^n)$
-(Lemma \ref{lemma-compare-derived}),
-the distinguished triangles
+Assertion (1) for $K_n$ follows by induction on $n$ from the
+distinguished triangles
 $$
 K \otimes_\Lambda^\mathbf{L} \underline{I^n/I^{n + 1}} \to
 K_{n + 1} \to
@@ -4170,6 +4221,9 @@ $$
 K \otimes_\Lambda^\mathbf{L} \underline{I^n/I^{n + 1}} =
 K_1 \otimes_{\Lambda/I}^\mathbf{L} \underline{I^n/I^{n + 1}}
 $$
+and the fact proven in Lemma \ref{lemma-compare-derived}
+that the essential image of $\epsilon^{-1}$ is a triangulated
+subcategory of $D^+(X_\proetale, \Lambda/I^n)$.
 \end{proof}
 
 \begin{example}

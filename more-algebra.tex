@@ -6541,7 +6541,7 @@ is given by the canonical maps $R \to R_{f_{i_0}}$.
 $0 \leq j \leq p + 1$ we have the canonical localization map
 $$
 R_{f_{i_0} \ldots \hat f_{i_j} \ldots f_{i_{p + 1}}} \to
-R_{f_{i_0} \ldots f_{i_p}}
+R_{f_{i_0} \ldots f_{i_{p + 1}}}
 $$
 \item The differentials use the canonical maps of (2) with sign $(-1)^j$.
 \end{enumerate}
@@ -6604,7 +6604,7 @@ $x = (x_{i_0 \ldots i_p})$ where $x_{i_0 \ldots i_p}$ is in
 $M_{f_{i_0} \ldots f_{i_p}}$. With this notation we have
 $$
 d(x)_{i_0 \ldots i_{p + 1}} =
-\sum\nolimits_j (-1)^j x_{i_0 \ldots \hat i_j \ldots i_p}
+\sum\nolimits_j (-1)^j x_{i_0 \ldots \hat i_j \ldots i_{p + 1}}
 $$
 As homotopy we use the maps
 $$
@@ -6779,7 +6779,7 @@ to the element $(f_{i_0} \ldots f_{i_{p - 1}})^{-n}$ in the
 summand $R_{f_{i_0} \ldots f_{i_{p - 1}}}$
 where the indices are chosen such that
 $\{1, \ldots r\} = \{i_0, \ldots, i_{p - 1}\}
-\amalg \{j_1, \ldots, j_{r - p - 2}\}$.
+\amalg \{j_1, \ldots, j_{r - p}\}$.
 Thus the differential on this complex is given by
 $$
 d(1\text{ in }R_{f_{i_0} \ldots f_{i_{p - 1}}}) =
@@ -6979,9 +6979,9 @@ $$
 $$
 where the first arrow is given by
 $e_i \wedge e_j \otimes m \mapsto (f_ie_j - f_je_i) \otimes m$.
-In particular this implies that
+Tensoring the sequence with $R/J$ we see that
 $$
-JM/J^2M = JM \otimes_R R/J = (M/JM)^{\oplus r}
+JM/J^2M = (R/J)^{\oplus r} \otimes_R M = (M/JM)^{\oplus r}
 $$
 is a finite free module. To finish the proof we have to prove
 for every $n \geq 2$ the following: if
@@ -6989,12 +6989,31 @@ $$
 \xi = \sum\nolimits_{|I| = n, I = (i_1, \ldots, i_r)}
 m_I f_1^{i_1} \ldots f_r^{i_r} \in J^{n + 1}M
 $$
-then $m_I \in JM$ for all $I$. Note that $f_1, \ldots, f_{r - 1}, f_r^n$
-is an $M$-$H_1$-regular sequence by
-Lemma \ref{lemma-mult-koszul-regular}.
-Hence we see that the required result holds for
-the multi-index $I = (0, \ldots, 0, n)$. It turns out that we can
-reduce the general case to this case as follows.
+then $m_I \in JM$ for all $I$. In the next paragraph, we prove
+$m_I \in JM$ for $I = (0, \ldots, 0, n)$ and in the last paragraph
+we deduce the general case from this special case.
+
+\medskip\noindent
+Let $I = (0, \ldots, 0, n)$. Let $\xi$ be as above. We can write
+$\xi = m_1 f_1 + \ldots + m_{r - 1}f_{r - 1} + m_I f_r^n$.
+As we have assumed $\xi \in J^{n + 1}M$, we can also write
+$\xi = \sum_{1 \leq i \leq j \leq r - 1} m_{ij}f_if_j +
+\sum_{1 \leq i \leq r - 1}m'_i f_if_r^n + m'' f_r^{n + 1}$.
+Then we see that
+$$
+\begin{matrix}
+(m_1 - m_{11}f_1 - m'_1f_r^n)f_1 + \\
+(m_2 - m_{12}f_1 - m_{22}f_2 - m'_2f_r^n)f_2 + \\
+\ldots + \\
+(m_{r - 1} - m_{1 r - 1}f_1 - \ldots - m_{r - 1 r - 1}f_{r - 1}
+- m'_{r - 1}f_r^n)f_{r - 1} + \\
+(m_I - m'' f_r)f_r^n = 0
+\end{matrix}
+$$
+Since $f_1, \ldots, f_{r - 1}, f_r^n$ is $M$-$H_1$-regular by
+Lemma \ref{lemma-mult-koszul-regular} we see that $m_I - m'' f_r$
+is in the submodule $f_1M + \ldots + f_{r - 1}M + f_r^nM$.
+Thus $m_I \in f_1M + \ldots + f_rM$.
 
 \medskip\noindent
 Let $S = R[x_1, x_2, \ldots, x_r, 1/x_r]$. The ring map $R \to S$ is faithfully
@@ -7004,23 +7023,26 @@ By
 Lemma \ref{lemma-change-basis}
 we see that
 $$
-g_1 = f_1 - x_1/x_r f_r, \ldots
-g_{r - 1} = f_{r - 1} - x_{r - 1}/x_r f_r,
-g_r = (1/x_r)f_r
+g_1 = f_1 - \frac{x_1}{x_r} f_r,
+\ \ldots,
+\ g_{r - 1} = f_{r - 1} - \frac{x_{r - 1}}{x_r} f_r,
+\ g_r = \frac{1}{x_r}f_r
 $$
 is an $M$-$H_1$-regular sequence in $S$. Finally, note that our element
 $\xi$ can be rewritten
 $$
 \xi = \sum\nolimits_{|I| = n, I = (i_1, \ldots, i_r)}
-m_I (g_1 + x_r g_r)^{i_1} \ldots (g_{r - 1} + x_r g_r)^{i_{r - 1}}
+m_I (g_1 + x_i g_r)^{i_1} \ldots (g_{r - 1} + x_i g_r)^{i_{r - 1}}
 (x_rg_r)^{i_r}
 $$
 and the coefficient of $g_r^n$ in this expression is
 $$
-\sum m_I x_1^{i_1} \ldots x_r^{i_r} \in J(M \otimes_R S).
+\sum m_I x_1^{i_1} \ldots x_r^{i_r}
 $$
-Since the monomials $x_1^{i_1} \ldots x_r^{i_r}$ form part of an $R$-basis
-of $S$ over $R$ we conclude that $m_I \in J$ for all $I$ as desired.
+By the case discussed in the previous paragraph this sum is in
+$J(M \otimes_R S)$. Since the monomials $x_1^{i_1} \ldots x_r^{i_r}$
+form part of an $R$-basis of $S$ over $R$ we conclude that $m_I \in J$
+for all $I$ as desired.
 \end{proof}
 
 \noindent
@@ -8236,7 +8258,7 @@ H_1(L_{K'/k}) \to
 H_1(L_{K'/k'}) \to
 \Omega_{k'/k} \otimes K' \to
 \Omega_{K'/k} \to
-\Omega_{K'/k} \to 0
+\Omega_{K'/k'} \to 0
 $$
 and
 $$
@@ -8785,7 +8807,7 @@ The proof of (2)(b) $\Rightarrow$ (2)(a) is the same as the proof of (1).
 Assume (2)(a). Suppose given a solid commutative diagram as in
 Definition \ref{definition-formally-smooth} where we use the discrete
 topology on $R$. Since $\varphi$ is continuous we see that
-$\varphi(\mathfrak m^n) \subset \mathfrak n$ for some $m \geq 1$.
+$\varphi(\mathfrak m^n) \subset \mathfrak n$ for some $n \geq 1$.
 As $S \to A/J$ is continuous we see that $\mathfrak n^k$ maps to
 zero in $A/J$ for some $k \geq 1$. Hence $\mathfrak m^{nk}$ maps
 into $J$ under the map $R \to A$. Thus $\mathfrak m^{2nk}$ maps to zero
@@ -11565,6 +11587,8 @@ is the desired extension.
 \begin{proposition}
 \label{proposition-fs-regular}
 Let $A \to B$ be a local homomorphism of Noetherian complete local rings.
+Let $k$ be the residue field of $A$ and $\overline{B} = B \otimes_A k$
+the special fibre.
 The following are equivalent
 \begin{enumerate}
 \item $A \to B$ is regular,
@@ -17997,6 +18021,32 @@ the assumption implies that $M$ has a finite resolution $F_\bullet$ by
 finite projective $R$-modules. As $A \to B$ is flat the complex
 $F_\bullet \otimes_A B$ is a finite length resolution of $M \otimes_A B$
 by finite projective modules over $B$. Hence $M \otimes_A B$ is perfect.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-tensor-perfect}
+Let $R$ be a ring. If $K$ and $L$ are perfect objects of $D(R)$, then
+$K \otimes_R^\mathbf{L} L$ is a perfect object too.
+\end{lemma}
+
+\begin{proof}
+We can prove this using the definition as follows. We may represent
+$K$, resp.\ $L$ by a bounded complex $K^\bullet$, resp.\ $L^\bullet$
+of finite projective $R$-modules. Then $K \otimes_R^\mathbf{L} L$
+is represented by the bounded complex
+$\text{Tot}(K^\bullet \otimes_R L^\bullet)$.
+The terms of this complex are direct sums of the modules
+$M^a \otimes_R L^b$. Since $M^a$ and $L^b$ are direct summands
+of finite free $R$-modules, so is $M^a \otimes_R L^b$. Hence we
+conclude the terms of the complex $\text{Tot}(K^\bullet \otimes_R L^\bullet)$
+are finite projective.
+
+\medskip\noindent
+Another proof can be given using the characterization of perfect
+complexes in Lemma \ref{lemma-perfect} and the corresponding
+lemmas for pseudo-coherent complexes (Lemma \ref{lemma-tensor-pseudo-coherent})
+and for tor amplitude (Lemma \ref{lemma-push-tor-amplitude} used
+with $A = B = R$).
 \end{proof}
 
 \begin{lemma}
@@ -24911,16 +24961,18 @@ of derived complete complexes.
 
 \begin{lemma}
 \label{lemma-pseudo-coherent-is-derived-complete}
-Let $A$ be a ring and $I \subset A$ an ideal. If $A$ is $I$-adically complete
+Let $A$ be a ring and $I \subset A$ an ideal. If $A$ is derived complete
+(eg.\ $I$-adically complete)
 then any pseudo-coherent object of $D(A)$ is derived complete.
 \end{lemma}
 
 \begin{proof}
+(Lemma \ref{lemma-complete-derived-complete} explains the parenthetical
+statement of the lemma.)
 Let $K$ be a pseudo-coherent object of $D(A)$. By definition this
 means $K$ is represented by a bounded above complex $K^\bullet$
-of finite free $A$-modules. Since $A$ is $I$-adically complete, it is
-derived complete (Lemma \ref{lemma-complete-derived-complete}).
-It follows that $H^n(K)$ is derived complete for all $n$, by part (1)
+of finite free $A$-modules. Since $A$ is derived complete
+it follows that $H^n(K)$ is derived complete for all $n$, by part (1)
 of Lemma \ref{lemma-serre-subcategory}. This in turn implies that
 $K$ is derived complete by part (2) of the same lemma.
 \end{proof}
@@ -25422,6 +25474,90 @@ and the proof is finished.
 
 
 
+
+
+\section{The category of derived complete modules}
+\label{section-derived-complete-modules}
+
+\noindent
+Let $A$ be a ring and let $I$ be an ideal. Denote
+$\mathcal{C}$ the category of derived complete modules, see
+Definition \ref{definition-derived-complete}.
+In this section we discuss some properties of this
+category. In Examples, Section \ref{examples-section-derived-complete-modules}
+we show that $\mathcal{C}$ isn't a Grothendieck abelian category in general.
+
+\medskip\noindent
+By Lemma \ref{lemma-serre-subcategory}
+the category $\mathcal{C}$ is abelian and the inclusion
+functor $\mathcal{C} \to \text{Mod}_A$ is exact.
+
+\medskip\noindent
+Since $D_{comp}(A) \subset D(A)$ is closed under products
+(see discussion following Definition \ref{definition-derived-complete})
+and since products in $D(A)$ are computed on the level of complexes,
+we see that $\mathcal{C}$ has products which agree with products in
+$\text{Mod}_A$. Thus $\mathcal{C}$ in fact has arbitrary limits and
+the inclusion functor $\mathcal{C} \to \text{Mod}_A$ commutes with them,
+see Categories, Lemma \ref{categories-lemma-limits-products-equalizers}.
+
+\medskip\noindent
+Assume $I$ is finitely generated. Let ${}^\wedge : D(A) \to D(A)$ denote
+the derived completion functor of Lemma \ref{lemma-derived-completion}.
+Let us show the functor
+$$
+\text{Mod}_A \longrightarrow \mathcal{C},\quad
+M \longmapsto H^0(M^\wedge)
+$$
+is a left adjoint to the inclusion functor $\mathcal{C} \to \text{Mod}_A$.
+Note that $H^i(M^\wedge) = 0$ for $i > 0$ for example by
+Lemma \ref{lemma-derived-completion-finite-cohomological-dimension}.
+Hence, if $N$ is a derived complete $A$-module, then we have
+\begin{align*}
+\Hom_\mathcal{C}(H^0(M^\wedge), N)
+& =
+\Hom_{D_{comp}(A)}(M^\wedge, N)\\
+& =
+\Hom_{D(A)}(M, N) \\
+& =
+\Hom_A(M, N)
+\end{align*}
+as desired.
+
+\medskip\noindent
+Let $T$ be a preordered set and let $t \mapsto M_t$ be a system of
+derived complete $A$-modules, i.e., a system over $T$ in $\mathcal{C}$, see
+Categories, Section \ref{categories-section-posets-limits}. Denote
+$\colim_{t \in T} M_t$ the colimit of the system in $\text{Mod}_A$.
+It follows formally from the above that
+$$
+H^0((\colim_{t \in T} M_t)^\wedge)
+$$
+is the colimit of the system in $\mathcal{C}$. In this way we see that
+$\mathcal{C}$ has all colimits. In general the inclusion
+functor $\mathcal{C} \to \text{Mod}_A$ will not commute with colimits,
+see Examples, Section \ref{examples-section-derived-complete-modules}.
+
+\begin{lemma}
+\label{lemma-derived-complete-modules}
+Let $A$ be a ring and let $I \subset A$ be an ideal. The category $\mathcal{C}$
+of derived complete modules is abelian, has arbitrary limits, and the
+inclusion functor $F : \mathcal{C} \to \text{Mod}_A$ is exact and commutes
+with limits. If $I$ is finitely generated, then $\mathcal{C}$ has arbitrary
+colimits and $F$ has a left adjoint
+\end{lemma}
+
+\begin{proof}
+This summarizes the discussion above.
+\end{proof}
+
+
+
+
+
+
+
+
 \section{Derived completion for a principal ideal}
 \label{section-derived-completion-principal}
 
@@ -25766,12 +25902,13 @@ by a diagonal matrix whose entries are in the ideal
 $(f_1^{m - n}, \ldots, f_r^{m - n})$ as $p < 0$.
 Note that $H^p(K_n^\bullet)$ is annihilated by
 $J = (f_1^n, \ldots, f_r^n)$, see Lemma \ref{lemma-homotopy-koszul}. Now
-$J^t \subset (f_1^{m - n}, \ldots, f_r^{m - n})$ for $m = n + tr$.
-Thus by Artin-Rees (Algebra, Lemma \ref{algebra-lemma-Artin-Rees})
-for some $m$ large enough we see that
+$(f_1^{m - n}, \ldots, f_r^{m - n}) \subset J^t$ for $m - n \geq tn$.
+Thus by Algebra, Lemma \ref{algebra-lemma-Artin-Rees} (Artin-Rees) applied
+to the ideal $J$ and the module $M = K_n^p$ with submodule
+$N = \Ker(K_n^p \to K_n^{p + 1})$ for $m$ large enough
 the image of $K_m^p \to K_n^p$ intersected with
 $\Ker(K_n^p \to K_n^{p + 1})$ is contained in
-$J \Ker(K_n^p \to K_n^{p + 1})$. For this $m$ we get the zero map.
+$J \Ker(K_n^p \to K_n^{p + 1})$. For such $m$ we get the zero map.
 \end{proof}
 
 \begin{proposition}
@@ -28366,15 +28503,10 @@ $A$-algebras. Then $B \to C$ is weakly \'etale.
 \end{lemma}
 
 \begin{proof}
-Write $B \to C$ as the composition $B \to B \otimes_A C \to C$.
-The first map is flat as the base change of the flat ring map $A \to C$.
-The second is the base change of the flat ring map $B \otimes_A B \to B$
-by the ring map $B \otimes_A B \to B \otimes_A C$, hence flat.
-Thus $B \to C$ is flat. The ring map
+The ring map $B \to C$ is flat by Lemma \ref{lemma-key}. The ring map
 $C \otimes_A C \to C \otimes_B C$ is surjective, hence an epimorphism.
-Thus Lemma \ref{lemma-key} implies, that since
-$C$ is flat over $C \otimes_A C$ it follows that $C$ is
-flat over $C \otimes_B C$.
+Thus Lemma \ref{lemma-key} implies, that since $C$ is flat over
+$C \otimes_A C$ also $C$ is flat over $C \otimes_B C$.
 \end{proof}
 
 \begin{lemma}
@@ -31758,13 +31890,22 @@ in $K_2$ we obtain the claim.
 Assume $u$ has an $e$th root in $K_1$.
 Since $e | e_1$ and since $u$ has a $e$th root in $K_1$
 we see that $\pi = \theta^e$ for some $\theta \in K_1$.
-Let $K[\theta] \subset K_1$ be the subfield generated by $\theta$.
-By Lemma \ref{lemma-pull-root-uniformizer} the integral closure of
-$A$ in $K[\theta]$ is the discrete valuation ring $A[\theta]$.
-If we can prove the lemma for the extension $K \subset K[\theta]$,
-then $K \subset K[\theta]$ is a solution for $A \subset B$ and
-we conclude by
-Lemma \ref{lemma-formally-smooth-goes-up}.
+Let $K'_1 = K[\theta] \subset K_1$ be the subfield generated by $\theta$.
+By Lemma \ref{lemma-pull-root-uniformizer} the integral closure $A'_1$
+of $A$ in $K[\theta]$ is the discrete valuation ring $A'_1 = A[\theta]$
+which has ramification index $e$ over $A$.
+If we can prove the lemma for the extension $K'_1/K$,
+then we conclude by Lemma \ref{lemma-formally-smooth-goes-up}
+applied to the diagram
+$$
+\xymatrix{
+(B'_1)_{B'_1 \cap \mathfrak m_{ij}} \ar[r] & (B_1)_{\mathfrak m_{ij}} \\
+A'_1 \ar[u] \ar[r] &
+(A_1)_{\mathfrak m_i} \ar[u]
+}
+$$
+for all $j = 1, \ldots, m_i$. This reduces us to the case discussed
+in the next paragraph.
 
 \medskip\noindent
 Assume $K_1 = K[\pi^{1/e}]$ and set $\theta = \pi^{1/e}$. Let $\pi_B$ be a
@@ -32118,14 +32259,14 @@ if $K \subset K_1$ is separable.
 
 \noindent
 In general (weak) solutions do not exist; there is an example in \cite{Epp}.
-We will prove the existence of weak solutions in Theorem \ref{theorem-epp}
-following \cite{Epp} in case the residue field extension satisfies a
-mild condition. We will then deduce the existence of solutions
-and sometimes separable solutions in geometrically meaningful cases in
-Proposition \ref{proposition-epp-essentially-finite-type}
-and Lemma \ref{lemma-separable-solution-separable-solution}.
-The following example shows that
-in general one needs inseparable extensions to get a solution.
+Under a mild hypothesis on the residue field extension, we will prove the
+existence of weak solutions in Theorem \ref{theorem-epp} following \cite{Epp}.
+In the next section, we will deduce the existence of solutions
+and sometimes separable solutions in geometrically meaningful cases,
+see Proposition \ref{proposition-epp-essentially-finite-type} and
+Lemma \ref{lemma-epp-essentially-finite-type-separable}.
+However, the following example shows that
+in general one needs inseparable extensions to get even a weak solution.
 
 \begin{example}
 \label{example-inseparable-necessary}
@@ -32136,8 +32277,8 @@ $K$ is a solution). We omit the proof.
 \end{example}
 
 \noindent
-Solutions are stable under further extensions
-(follows from Lemma \ref{lemma-formally-smooth-goes-up}).
+Solutions are stable under further extensions, see
+Lemma \ref{lemma-solution-goes-up}.
 This may not be true for weak solutions.
 Weak solutions are in some sense stable under totally ramified extensions, see
 Lemma \ref{lemma-weakly-unramified-goes-up-along-totally-ramified}.
@@ -32178,7 +32319,7 @@ fields $K \subset L \subset M$. Let $K \subset K_1$ be a finite extension.
 solution for $A \to B$.
 \item If $K_1$ is a (weak) solution for $A \to B$ and
 $L_1 = (L \otimes_K K_1)_{red}$ is a product of fields which are
-(weak) solutions for $B \to C$, then $K_1$ is a weak solution for $A \to C$.
+(weak) solutions for $B \to C$, then $K_1$ is a (weak) solution for $A \to C$.
 \end{enumerate}
 \end{lemma}
 
@@ -32205,81 +32346,6 @@ so is the subextension
 $\kappa_{A_1 \cap \mathfrak m} \to \kappa_{B_1 \cap \mathfrak m}$.
 Taking into account Lemma \ref{lemma-extension-dvrs-formally-smooth}
 this proves (1). A similar argument works for (2).
-\end{proof}
-
-\begin{lemma}
-\label{lemma-separable-solution-separable-solution}
-Let $A \subset B$ be an extension of discrete valuation rings.
-Assume
-\begin{enumerate}
-\item the extension $K \subset L$ of fraction fields is separable,
-\item $B$ is Nagata, and
-\item there exists a solution for $A \subset B$.
-\end{enumerate}
-Then there exists a separable solution for $A \subset B$.
-\end{lemma}
-
-\begin{proof}
-The lemma is trivial if the characteristic of $K$ is zero; thus we may
-and do assume that the characteristic of $K$ is $p > 0$.
-
-\medskip\noindent
-Let $K \subset K_1$ be a finite extension. Since $L/K$ is separable,
-the algebra $L \otimes_K K_1$ is reduced
-(Algebra, Lemma \ref{algebra-lemma-separable-extension-preserves-reducedness}).
-Since $B$ is Nagata, the ring extension $B \subset B_1$ is finite
-(Remark \ref{remark-construction}) and $B_1$ is a Nagata ring.
-Moreover, if $K \subset K_1 \subset K_2$ is a tower of finite extensions,
-then the same thing is true, i.e., the ring extension $B_1 \subset B_2$
-is finite too where $B_2$ is the integral closure of $B$ (or $B_1$)
-in $L \otimes_K K_2$.
-
-\medskip\noindent
-Let $K \subset K_2$ be a solution for $A \to B$. There exists a subfield
-$K \subset K_1 \subset K_2$ such that $K_1/K$ is separable and
-$K_2/K_1$ is purely inseparable
-(Fields, Lemma \ref{fields-lemma-separable-first}). Thus it suffices
-to show that if we have $K \subset K_1 \subset K_2$ with
-$K_2/K_1$ purely inseparable of degree $p$, then $K \subset K_1$
-is a solution for $A \subset B$. Using the remarks above, we may replace
-$A$ by a localization $(A_1)_{\mathfrak m_i}$ and $B$ by
-$(B_1)_{\mathfrak m_{ij}}$ (notation as in Remark \ref{remark-construction})
-and reduce to the problem discussed in the following paragraph.
-
-\medskip\noindent
-Assume that $K \subset K_1$ is a purely inseparable extension of degree
-$p$ which is a solution for $A \subset B$. Problem: show that $A \to B$ is
-formally smooth in the $\mathfrak m_B$-adic topology.
-By the discussion in Remark \ref{remark-construction}
-we see that $A_1$ and $B_1$ are discrete valuation rings
-and as discussed above $B \subset B_1$ is finite. Consider the diagrams
-$$
-\vcenter{
-\xymatrix{
-B \ar[r]_{e_u} & B_1 \\
-A \ar[u]_e \ar[r]^{e_d} & A_1 \ar[u]^1
-}
-}
-\quad\text{and}\quad
-\vcenter{
-\xymatrix{
-\kappa_B \ar[r]_{d_u} & \kappa_{B_1} \\
-\kappa_A \ar[u]_d \ar[r]^{d_d} & \kappa_{A_1} \ar[u]^1
-}
-}
-$$
-of extensions of discrete valuation rings and residue fields.
-Here $e, e_u, e_d, 1$ denote ramification indices, so $e e_u = e_d$.
-Also $d, d_u, d_d, 1$ denote the inseparable degrees
-(Fields, Definition \ref{fields-definition-insep-degree}), so $dd_u = d_d$
-(Fields, Lemma \ref{fields-lemma-multiplicativity-all-degrees}).
-By Algebra, Lemma \ref{algebra-lemma-finite-extension-dim-1}
-and the fact that $L \subset L \otimes_K K_1$ is a degree $p$
-field extension, we see that $e_ud_u = p$
-(this is where we really use that $B$ is Nagata; this need
-not be true if the extension $B \subset B_1$ is not finite).
-We have $e_d d_d \leq p$ by Lemma \ref{lemma-inequality}.
-Thus it follows that $e = d = 1$ as desired.
 \end{proof}
 
 \begin{lemma}
@@ -33180,8 +33246,8 @@ and the corresponding integral closures $B^i_1$. Note that $C_1 = B^r_1$
 is a product of discrete valuation rings which are transitively permuted
 by $G = \text{Aut}(K_1/K)$ by Lemma \ref{lemma-galois-relative}.
 In particular all the extensions of discrete valuation rings
-$A_1 \to (C_1)_\mathfrak m$ are isomorphic and a solution for one
-will be a solution for all of them. We can apply the induction
+$A_1 \to (C_1)_\mathfrak m$ are isomorphic and a weak solution for one
+will be a weak solution for all of them. We can apply the induction
 hypothesis to the sequence
 $$
 A_1 \to (B^1_1)_{B^1_1 \cap \mathfrak m} \to
@@ -33190,8 +33256,8 @@ A_1 \to (B^1_1)_{B^1_1 \cap \mathfrak m} \to
 (B^r_1)_{B^r_1 \cap \mathfrak m} =
 (C_1)_\mathfrak m
 $$
-to get a solution $K_1 \subset K_2$ for $A_1 \to (C_1)_\mathfrak m$.
-The extension $K \subset K_2$ will then be a solution for $A \to C$
+to get a weak solution $K_1 \subset K_2$ for $A_1 \to (C_1)_\mathfrak m$.
+The extension $K \subset K_2$ will then be a weak solution for $A \to C$
 by what we said before. Note that the induction hypothesis applies:
 the ring map $A_1 \to (B^1_1)_{B^1_1 \cap \mathfrak m}$
 is weakly unramified by our choice of $K_1$
@@ -33368,6 +33434,291 @@ This reduces us to the special case discussed in
 Lemma \ref{lemma-special-case}.
 \end{proof}
 
+
+
+
+
+
+
+\section{Eliminating ramification, II}
+\label{section-eliminating-ramification-bis}
+
+\noindent
+In this section we use the results of
+Section \ref{section-eliminating-ramification}
+to obtain (separable) solutions in some cases.
+
+\begin{lemma}
+\label{lemma-solution-goes-up}
+Let $A \to B$ be an extension of discrete valuation rings with fraction
+fields $K \subset L$. If $K_1/K$ is a solution for $A \subset B$,
+then for any finite extension $K_2/K_1$ the extension $K_2/K$ is a
+solution for $A \subset B$.
+\end{lemma}
+
+\begin{proof}
+This follows from Lemma \ref{lemma-formally-smooth-goes-up}. Details omitted.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-nagata-goes-down}
+Let $A \subset B$ be an extension of discrete valuation rings.
+If $B$ is Nagata and the extension $L/K$ of fraction fields is
+separable, then $A$ is Nagata.
+\end{lemma}
+
+\begin{proof}
+A discrete valuation ring is Nagata if and only if it is N-2.
+Let $K_1/K$ be a finite purely inseparable field extension.
+We have to show that the integral closure $A_1$ of $A$ in $K_1$
+is finite over $A$, see Algebra, Lemma \ref{algebra-lemma-domain-char-p-N-1-2}.
+Since $L/K$ is separable and $K_1/K$ is purely inseparable,
+the algebra $L \otimes_K K_1$ is a field (by Algebra, Lemmas
+\ref{algebra-lemma-separable-extension-preserves-reducedness} and
+\ref{algebra-lemma-radicial-integral-bijective}).
+Let $B_1$ be the integral closure of $B$ in $L \otimes_K K_1$.
+Since $B$ is Nagata, $B_1$ is finite over $B$. Since
+$B \otimes_A A_1 \subset B_1$
+and $B$ is Noetherian, we see that $B \otimes_A A_1$ is finite over $B$.
+As $A \to B$ is faithfully flat, this implies $A_1$ is finite over $A$,
+see Algebra, Lemma \ref{algebra-lemma-descend-properties-modules}.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-construct-extension}
+Let $A' \subset A$ be an extension of rings. Let $f \in A'$.
+Assume that (a) $A$ is finite over $A'$, (b) $f$ is a nonzerodivisor
+on $A$, and (c) $A'_f = A_f$. Then there exists an integer $n_0 > 0$
+such that for all $n \geq n_0$ the following is true: given a ring
+$B'$, a nonzerodivisor $g \in B'$, and an isomorphism
+$\varphi' : A'/f^n A' \to B'/g^n B'$ with $\varphi'(f) \equiv g$, there is a
+finite extension $B' \subset B$ and an isomorphism
+$\varphi : A/fA \to B/gB$ compatible with $\varphi'$.
+\end{lemma}
+
+\begin{proof}
+Since $A$ is finite over $A'$ and since $A'_f = A_f$ we can
+Cchoose $t > 0$ such that $f^t A \subset A'$. Set $n_0 = 2t$.
+Given $n, B', g, \varphi'$ as in the statement of the lemma,
+denote $N \subset B'$ the set of elements
+$b \in B'$ such that $b \bmod g^nB' \in \varphi'(f^tA)$.
+Set $B = g^{-t}N$. As $f^tA' \subset f^tA$ and $\varphi'$ sends $f$
+to $g$ we have $g^tB' \subset N$, hence $B' \subset B$. Since
+$f^tA \cdot f^tA \subset f^t \cdot f^tA$ and $\varphi'$ sends
+$f$ to $g$, we see that $N \cdot N \subset g^t N$.
+Hence we obtain a multiplication on $B$ extending the
+multiplication of $B'$. We have an isomorphism of $A'/f^nA'$-modules
+$$
+A/f^tA' \xrightarrow{f^t} f^tA/f^nA' \xrightarrow{\varphi'}
+g^tB/g^nB' \xrightarrow{g^{-t}} B/g^tB'
+$$
+where the module structures on the right are defined using $\varphi'$.
+Since $A/f^tA'$ is a finite $A'$-module, we conclude that $B/g^tB'$
+is a finite $B'$-module and hence we see that $B' \to B$ is finite.
+Finally, we leave it to the reader to see that the displayed isomorphism
+of modules sends $fA$ into $gB$ and induces an isomorphism of rings
+$\varphi : A/fA \to B/gB$ compatible with $\varphi'$ (it even induces an
+isomorphism $A/f^tA \to B/g^tB$ but we don't need this).
+\end{proof}
+
+\begin{remark}
+\label{remark-functoriality-construct-extension}
+The construction in Lemma \ref{lemma-construct-extension} satisfies
+the following ``functoriality''. Suppose we have a commutative diagram
+$$
+\xymatrix{
+A'_2 \ar[r] & A_2 \\
+A'_1 \ar[r] \ar[u] & A_1 \ar[u]
+}
+$$
+with injective horizontal arrows. Suppose given an element
+$f \in A'_1$ such that $(A'_1 \subset A_1, f)$ and $(A'_2 \subset A_2, f)$
+satisfy properties (a), (b), (c) of Lemma \ref{lemma-construct-extension}.
+Let $n_{0, 1}$ and $n_{0, 2}$ be the integers found in the lemma for
+these two situations.
+Finally, let $B'_1 \to B'_2$ be a ring map, let $g \in B'_1$
+be a nonzerodivisor on $B_1$ and $B_2$, let $n \geq \max(n_{0, 1}, n_{0, 2})$,
+and let a commutative diagram
+$$
+\xymatrix{
+A'_2/f^nA'_2 \ar[r]_{\varphi'_2} & B'_2/g^nB'_2 \\
+A'_1/f^nA'_1 \ar[r]^{\varphi'_1} \ar[u] & B'_2/g^nB'_2 \ar[u]
+}
+$$
+be given whose horizontal arrows are isomorphisms
+and where $\varphi'_1(f) \equiv g$. Then we obtain commutative diagrams
+$$
+\vcenter{
+\xymatrix{
+B'_2 \ar[r] & B_2 \\
+B'_1 \ar[r] \ar[u] & B_1 \ar[u]
+}
+}
+\quad\text{and}\quad
+\vcenter{
+\xymatrix{
+A_2/fA_2 \ar[r]_{\varphi_2} & B_2/gB_2 \\
+A_1/fA_1 \ar[r]^{\varphi_1} \ar[u] & B_2/gB_2 \ar[u]
+}
+}
+$$
+where $(B'_1 \subset B_1, \varphi_1)$ and $(B'_2 \subset B_2, \varphi_2)$
+are constructed as in the proof of Lemma \ref{lemma-construct-extension}.
+We omit the detailed verification.
+\end{remark}
+
+
+\begin{lemma}
+\label{lemma-approximate-solution}
+Let $p$ be a prime number. Let $A \subset B$ be an extension of discrete
+valuation rings with fraction field extension $L/K$. Let $K_2/K_1/K$ be
+a tower of finite field extensions. Assume
+\begin{enumerate}
+\item $K$ has characteristic $p$,
+\item $L/K$ is separable,
+\item $B$ is Nagata,
+\item $K_2$ is a solution for $A \subset B$,
+\item $K_2/K_1$ is purely inseparable of degree $p$.
+\end{enumerate}
+Then there exists a separable extension $K_3/K_1$
+which is a solution for $A \subset B$.
+\end{lemma}
+
+\begin{proof}
+Let us use notation as in Remark \ref{remark-construction}; we will use all
+the observations made there. Since $L/K$ is separable, the algebra
+$L_1 = L \otimes_K K_1$ is reduced
+(Algebra, Lemma \ref{algebra-lemma-separable-extension-preserves-reducedness}).
+Since $B$ is Nagata, the ring extension $B \subset B_1$ is finite
+where $B_1$ is the integral closure of $B$ in $L_1$
+and $B_1$ is a Nagata ring. Similarly, the ring $A$ is Nagata by
+Lemma \ref{lemma-nagata-goes-down} hence $A \subset A_1$ is finite
+and $A_1$ is a Nagata ring too. Moreover, the same assertions are true
+for $K_2$, i.e., $L_2 = L \otimes_K K_2$ is reduced,
+the ring extensions $A_1 \subset A_2$ and $B_1 \subset B_2$
+are finite where $A_2$, resp.\ $B_2$ is the integral closure of
+$A$, resp.\ $B$ in $K_2$, resp.\ $L_2$.
+
+\medskip\noindent
+Let $\pi \in A$ be a uniformizer. Observe that $\pi$ is a nonzerodivisor
+on $K_1$, $K_2$, $A_1$, $A_2$, $L_1$, $L_2$, $B_1$, and $B_2$ and we have
+$K_1 = (A_1)_\pi$, $K_2 = (A_2)_\pi$, $L_1 = (B_1)_\pi$, and $L_2 = (B_2)_\pi$.
+We may write $K_2 = K_1(\alpha)$ where $\alpha^p = a_1 \in K_1$, see
+Fields, Lemma \ref{fields-lemma-finite-purely-inseparable}.
+After multiplying $\alpha$ by a power of $\pi$ we may and do assume
+$a_1 \in A_1$. For the rest of the proof it is convenient to write
+$K_2 = K_1[x]/(x^p - a_1)$ and $L_2 = L_1[x]/(x^p - a_1)$.
+Consider the extensions of rings
+$$
+A'_2 = A_1[x]/(x^p - a_1) \subset A_2
+\quad\text{and}\quad
+B'_2 = B_1[x]/(x^p - a_1) \subset B_2
+$$
+We may apply Lemma \ref{lemma-construct-extension} to
+$A'_2 \subset A_2$ and $f = \pi^2$ and to $B'_2 \subset B_2$ and $f = \pi^2$.
+Choose an integer $n$ large enough which works for both of these.
+
+\medskip\noindent
+Consider the algebras
+$$
+K_3 = K_1[x]/(x^p - \pi^{2n} x - a_1)
+\quad\text{and}\quad
+L_3 = L_1[x]/(x^p - \pi^{2n} x - a_1)
+$$
+Observe that $K_3/K_1$ and $L_3/L_1$ are finite \'etale algebra extensions of
+degree $p$. Consider the subrings
+$$
+A'_3 = A_1[x]/(x^p - \pi^n x - a_1)
+\quad\text{and}\quad
+B'_3 = B_1[x]/(x^p - \pi^n x - a_1)
+$$
+of $K_3 = (A'_2)_\pi$ and $L_3 = (B'_3)_\pi$. We are going to construct
+a commutative diagram
+$$
+\xymatrix{
+B'_2/\pi^{2n} B'_2 \ar[r]_{\psi'} & B'_3/\pi^{2n} B'_3 \\
+A'_2/\pi^{2n} A'_2 \ar[r]^{\varphi'} \ar[u] & A'_3/\pi^{2n} A'_3 \ar[u]
+}
+$$
+Namely, $\varphi'$ is the unique $A_1$-algebra isomorphism
+sending the class of $x$ to the class of $x$.
+Simiarly, $\psi'$ is the unique $B_1$-algebra isomorphism sending
+the class of $x$ to the class of $x$. By our choice of $n$ we obtain, via
+Lemma \ref{lemma-construct-extension} and
+Remark \ref{remark-functoriality-construct-extension}
+finite ring extensions $A'_3 \subset A_3$ and $B'_3 \subset B_3$
+such that $A'_3 \to B'_3$ extends to a ring map $A_3 \to B_3$
+and a commutative diagram
+$$
+\xymatrix{
+B_2/\pi^2 B_2 \ar[r]_\psi & B_3/\pi^2B_3 \\
+A_2/\pi^2 A_2 \ar[r]^\varphi \ar[u] & A_3/\pi^2A_3 \ar[u]
+}
+$$
+with all the properties asserted in the references mentioned above
+(in particular $\varphi$ and $\psi$ are isomorphisms).
+
+\medskip\noindent
+With all of this data in hand, we can finish the proof. Namely, we
+first observe that $A_3$ and $B_3$ are finite products of
+Dedekind domains with $\pi$ contained in all of the maximal ideals.
+Namely, if $\mathfrak p \subset A_3$ is a maximal ideal, then
+$\pi \in \mathfrak p$ as $A \to A_3$ is finite. Then $\mathfrak p/\pi^2 A_3$
+corresponds via $\varphi$ to a maximal ideal in $A_2 / \pi^2A_2$
+which is principal as $A_2$ is a finite product of Dedekind domains.
+We conclude that $\mathfrak p/\pi^2 A_3$ is principal and hence by Nakayama 
+we see that $\mathfrak p (A_3)_\mathfrak p$ is principal.
+The same argument works for $B_3$. We conclude that
+$A_3$ is the integral closure of $A$ in $K_3$
+and that $B_3$ is the integral closure of $B$ in $L_3$.
+Let $\mathfrak q \subset B_3$ be a maximal ideal lying
+over $\mathfrak p \subset A_3$. To finish the proof we have
+to show that $(A_3)_\mathfrak p \to (B_3)_\mathfrak q$ is
+formally smooth in the $\mathfrak q$-adic topology. By the criterion of
+Lemma \ref{lemma-extension-dvrs-formally-smooth} it suffices to show that
+$\mathfrak p (B_3)_\mathfrak q = \mathfrak q (B_3)_\mathfrak q$
+and that the field extension $\kappa(\mathfrak q)/\kappa(\mathfrak p)$
+is separable. This is true because we may check both assertions
+by looking at the ring map $A_3/\pi^2 A_3 \to B_3/\pi^2 B_3$
+and this is isomorphic to the ring map
+$A_2/\pi^2 A_2 \to B_2/\pi^2 B_2$ where the corresponding
+statement holds by our assumption that $K_2$
+is a solution for $A \subset B$. Some details omitted.
+\end{proof}
+
+\begin{lemma}
+\label{lemma-separable-solution-separable-solution}
+Let $A \subset B$ be an extension of discrete valuation rings.
+Assume
+\begin{enumerate}
+\item the extension $K \subset L$ of fraction fields is separable,
+\item $B$ is Nagata, and
+\item there exists a solution for $A \subset B$.
+\end{enumerate}
+Then there exists a separable solution for $A \subset B$.
+\end{lemma}
+
+\begin{proof}
+The lemma is trivial if the characteristic of $K$ is zero; thus we may
+and do assume that the characteristic of $K$ is $p > 0$.
+
+\medskip\noindent
+Let $K_2/K$ be a solution for $A \to B$. We will use induction on the
+inseparable degree $[K_2 : K]_i$
+(Fields, Definition \ref{fields-definition-insep-degree}) of $K_2/K$.
+If $[K_2 : K]_i = 1$, then $K_2$ is separable over $K$ and we are done.
+If not, then there exists a subfield $K_2/K_1/K$ such that $K_2/K_1$
+is purely inseparable of degree $p$
+(Fields, Lemmas \ref{fields-lemma-separable-first} and
+\ref{fields-lemma-finite-purely-inseparable}). By
+Lemma \ref{lemma-approximate-solution}
+there exists a separable extension $K_3/K_1$ which is a
+solution for $A \subset B$. Then
+$[K_3 : K]_i = [K_1 : K]_i = [K_2 : K]_i/p$
+(Fields, Lemma \ref{fields-lemma-multiplicativity-all-degrees})
+is smaller and we conclude by induction.
+\end{proof}
+
 \begin{lemma}
 \label{lemma-big-extension-is-ok}
 Let $A \to B$ be an extension of discrete valuation rings with fraction
@@ -33447,7 +33798,7 @@ extensions $A' \subset B'_{\mathfrak m_i}$. Since the residue field
 of $A'$ is perfect, these are actually solutions. Let $K' \subset K'_1$
 be a finite extension which contains each $K'_i$. Then $K' \subset K'_1$
 is still a solution for each $A' \subset B'_{\mathfrak m_i}$ by
-Lemma \ref{lemma-formally-smooth-goes-up}.
+Lemma \ref{lemma-solution-goes-up}.
 
 \medskip\noindent
 Let $A'_1$ be the integral closure of $A$ in $K'_1$. Note that
@@ -33557,7 +33908,7 @@ $$
 N \longmapsto M \otimes_R N
 $$
 is an equivalence of categories. An invertible $R$-module is said to be
-{\it trivial} if it is isomorphic to $A$ as an $A$-module.
+{\it trivial} if it is isomorphic to $R$ as an $R$-module.
 \end{definition}
 
 \begin{lemma}
@@ -34692,34 +35043,65 @@ Say we number them so that  $A_{\mathfrak p_i} \to B_{\mathfrak q_{i, 1}}$
 is weakly unramified.
 Since $f$ maps to an $n$th power times a unit in $B_{\mathfrak q_{i, 1}}$
 we see that the valuation $v_i$ of $f$ in $A_{\mathfrak p_i}$ is
-divisible by $n$. Consider the exact sequence
+divisible by $n$. Say $v_i = n w_i$ for some $w_i \geq 0$.
+Consider the exact sequence
 $$
 0 \to I \to A \to
 \prod\nolimits_{i = 1, \ldots, r}
-A_{\mathfrak p_i}/\mathfrak p_i^{v_i/n}A_{\mathfrak p_i}
+A_{\mathfrak p_i}/\mathfrak p_i^{w_i}A_{\mathfrak p_i}
 $$
-Applying the exact functor $- \otimes_A B$ we obtain
+defining the ideal $I$. Applying the exact functor $- \otimes_A B$ we obtain
+an exact sequence
+$$
+0 \to I \otimes_A B \to B \to
+\prod\nolimits_{i = 1, \ldots, r}
+(A_{\mathfrak p_i}/\mathfrak p_i^{w_i}A_{\mathfrak p_i}) \otimes_A B
+$$
+Fix $i$. We claim that the canonical map
+$$
+(A_{\mathfrak p_i}/\mathfrak p_i^{w_i}A_{\mathfrak p_i}) \otimes_A B
+\to
+\prod\nolimits_{j = 1, \ldots, r_i}
+B_{\mathfrak q_{i, j}}/\mathfrak q_{i, j}^{e_{i, j}w_i}B_{\mathfrak q_{i, j}}
+$$
+is injective. Here $e_{i, j}$ is the ramification index of 
+$A_{\mathfrak p_i} \to B_{\mathfrak q_{i, j}}$.
+The claim asserts that $\mathfrak p_i^{w_i}B_{\mathfrak p_i}$
+is equal to the set of elements $b$ of $B_{\mathfrak p_i}$
+whose valuation at $\mathfrak q_{i, j}$ is $\geq e_{i, j}w_i$.
+Choose a generator $a \in A_{\mathfrak p_i}$ of the principal
+ideal $\mathfrak p_i^{w_i}$. Then the valuation of $a$ at
+$\mathfrak q_{i, j}$ is equal to $e_{i, j}w_i$. Hence,
+as $B_{\mathfrak p_i}$ is a normal domain whose height one
+primes are the primes $\mathfrak q_{i, j}$, $j = 1, \ldots, r_i$,
+we see that, for $b$ as above, we have $b/a \in B_{\mathfrak p_i}$ by
+Algebra, Lemma
+\ref{algebra-lemma-normal-domain-intersection-localizations-height-1}.
+Thus the claim.
+
+\medskip\noindent
+The claim combined with the second exact sequence above
+determines an exact sequence
 $$
 0 \to I \otimes_A B \to B \to
 \prod\nolimits_{i = 1, \ldots, r}
 \prod\nolimits_{j = 1, \ldots, r_i}
-B_{\mathfrak q_{i, j}}/\mathfrak q_{i, j}^{e_{i, j}v_i/n}A_{\mathfrak p_i}
+B_{\mathfrak q_{i, j}}/\mathfrak q_{i, j}^{e_{i, j}w_i}B_{\mathfrak q_{i, j}}
 $$
-where $e_{i, j}$ is the ramification index of 
-$A_{\mathfrak p_i} \to B_{\mathfrak q_{i, j}}$.
 It follows that $I \otimes_A B$ is the set of elements $h'$ of $B$
-which have valuation $\geq e_{i, j}v_i/n$ at $\mathfrak q_{i, j}$.
+which have valuation $\geq e_{i, j}w_i$ at $\mathfrak q_{i, j}$.
 Since $f = wh^n$ in $B$ we see that $h$ has valuation
-$e_{i, j}v_i/n$ at $\mathfrak q_{i, j}$. Thus $h'/h \in B$
+$e_{i, j}w_i$ at $\mathfrak q_{i, j}$. Thus $h'/h \in B$
 by Algebra, Lemma
 \ref{algebra-lemma-normal-domain-intersection-localizations-height-1}.
-It follows that $I \otimes_A B$ is a free $B$-module of rank $1$.
+It follows that $I \otimes_A B$ is a free $B$-module of rank $1$
+(generated by $h$).
 Therefore $I$ is a free $A$-module of rank $1$, see
 Algebra, Lemma \ref{algebra-lemma-finite-projective-descends}.
 Let $g \in I$ be a generator. Then we see that
 $g$ and $h$ differ by a unit in $B$. Working backwards we
 conclude that the valuation of $g$ in $A_{\mathfrak p_i}$ is
-$v_i/n$. Hence $g^n$ and $f$ differ by a unit in $A$
+$w_i = v_i/n$. Hence $g^n$ and $f$ differ by a unit in $A$
 (by Algebra, Lemma
 \ref{algebra-lemma-normal-domain-intersection-localizations-height-1})
 as desired.
@@ -34892,7 +35274,7 @@ Let $R$ be a nonzero ring. The following are equivalent
 \begin{enumerate}
 \item For $a, b \in R$ either $a$ divides $b$ or $b$ divides $a$.
 \item Every finitely generated ideal is principal and $R$ is local.
-\item The set of ideals of $R$ are linearly ordered by inclusion.
+\item The set of ideals of $R$ is linearly ordered by inclusion.
 \end{enumerate}
 This holds in particular if $R$ is a valuation ring.
 \end{lemma}
