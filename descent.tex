@@ -3340,7 +3340,7 @@ to see that any $x \in X$ has to be in the image.
 Let $\{f_i : X_i \to X\}_{i \in I}$ be a family of morphisms of schemes.
 If for every morphism $Y \to X$ with $Y$ affine the family of base changes
 $g_i : Y_i \to Y$ forms an effective epimorphism, then
-the family of $f_i$ forms a universally effective epimorphism
+the family of $f_i$ forms a universal effective epimorphism
 in the category of schemes.
 \end{lemma}
 
@@ -4174,11 +4174,10 @@ Morphisms, Lemma \ref{morphisms-lemma-base-change-finite-type}.
 Hence $T_s$ is Noetherian and has a finite number of irreducible components
 (Morphisms, Lemma \ref{morphisms-lemma-finite-type-noetherian} and
 Properties, Lemma \ref{properties-lemma-Noetherian-irreducible-components}).
-Finally, we have to show that if $T \to S$ is a surjective
-flat, finitely presented morphism of affines and $T$ has a finite
-number of irreducible components, then so does $S$. In this case
-the arguments above show that every generic point of $S$ is the
-image of a generic point of $T$ and the result is clear.
+Finally, we have to show that if $T \to S$ is a surjective flat,
+finitely presented morphism of affines and $T$ has a finite number of
+irreducible components, then so does $S$. This follows from Topology, Lemma
+\ref{topology-lemma-surjective-continuous-irreducible-components}.
 Thus (1), (2) and (3) of Lemma \ref{lemma-descending-properties} hold
 and we win.
 \end{proof}
@@ -5943,7 +5942,7 @@ flat, flat locally of finite presentation, \'etale, smooth or syntomic morphisms
 depending on whether $\tau$ is fpqc, fppf, \'etale, smooth, or syntomic,
 \item the property is Zariski local on the source,
 \item the property is Zariski local on the target,
-\item for any morphism of affine schemes $X \to Y$, and
+\item for any morphism of affine schemes $f : X \to Y$, and
 any surjective morphism of affine schemes $X' \to X$
 which is flat, flat of finite presentation,
 \'etale, smooth or syntomic depending on whether $\tau$ is

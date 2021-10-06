@@ -79,6 +79,11 @@ $\mathcal{U} : U = \bigcup_{i \in I} U_i$ is an
 {\it open covering of} $U$ (note: we allow any $U_i$ to be empty
 and we even allow, in case $U$ is empty, the empty set for $I$),
 \item
+\label{item-subcover}
+a {\it subcover} of a covering as in (\ref{item-covering})
+is an open covering $\mathcal{U}' : U = \bigcup_{i \in I'} U_i$
+where $I' \subset I$,
+\item
 \label{item-refinement}
 the open covering $\mathcal{V}$ is a {\it refinement}
 of the open covering $\mathcal{U}$ (if
@@ -779,6 +784,24 @@ So $X_i \subset X_j$ and since the original union does not have
 redundant members, $X_i = X_j$, which is an irreducible component.
 \end{proof}
 
+\begin{lemma}
+\label{lemma-surjective-continuous-irreducible-components}
+Let $f : X \to Y$ be a surjective, continuous map of topological spaces.
+If $X$ has a finite number, say $n$, of irreducible components, then
+$Y$ has $\leq n$ irreducible components.
+\end{lemma}
+
+\begin{proof}
+Say $X_1, \ldots, X_n$ are the irreducible components of $X$.
+By Lemmas \ref{lemma-image-irreducible-space} and \ref{lemma-irreducible}
+the closure $Y_i \subset Y$ of $f(X_i)$ is irreducible.
+Since $f$ is surjective, we see that $Y$ is the union of the $Y_i$.
+We may choose a minimal subset $I \subset \{1, \ldots, n\}$
+such that $Y = \bigcup_{i \in I} Y_i$. Then we may apply
+Lemma \ref{lemma-pick-irreducible-components} to see that the $Y_i$
+for $i \in I$ are the irreducible components of $Y$.
+\end{proof}
+
 \noindent
 A singleton is irreducible. Thus if $x \in X$ is a point
 then the closure $\overline{\{x\}}$ is an irreducible closed
@@ -1032,6 +1055,22 @@ map $f'$ is unique. We also omit the proof of the statements on
 Kolmogorov spaces.
 \end{proof}
 
+\begin{lemma}
+\label{lemma-remove-irreducible-connected}
+Let $X$ be a connected topological space with a finite number of
+irreducible components $X_1, \ldots, X_n$. If $n > 1$ there is an
+$1 \leq j \leq n$ such that $X' = \bigcup_{i \not = j} X_i$ is connected.
+\end{lemma}
+
+\begin{proof}
+This is a graph theory problem. Let $\Gamma$ be the graph with vertices
+$V = \{1, \ldots, n\}$ and an edge between $i$ and $j$ if and only if
+$X_i \cap X_j$ is nonempty. Connectedness of $X$ means that $\Gamma$
+is connected. Our problem is to find $1 \leq j \leq n$ such that
+$\Gamma \setminus \{j\}$ is still connected. You can do this by choosing
+$j, j' \in E$ with maximal distance and then $j$ works (choose a leaf!).
+Details omitted.
+\end{proof}
 
 
 \section{Noetherian topological spaces}
@@ -1377,7 +1416,7 @@ in algebraic geometry are not Hausdorff.
 Quasi-compactness.
 \begin{enumerate}
 \item We say that a topological space $X$ is {\it quasi-compact}
-if every open covering of $X$ has a finite refinement.
+if every open covering of $X$ has a finite subcover.
 \item We say that a continuous map $f : X \to Y$ is {\it quasi-compact}
 if the inverse image $f^{-1}(V)$ of every quasi-compact open $V \subset Y$
 is quasi-compact.
@@ -2541,14 +2580,12 @@ Then $T$ is constructible in $X$.
 Note that $T$ is quasi-compact and open in $\overline{T}$.
 Using our basis of quasi-compact opens we can write
 $T = U \cap \overline{T}$ where $U$ is quasi-compact open in $X$.
-Then $U \setminus T = U \cap T^c$ is retrocompact in $U$ as $T^c$
-is retrocompact in $X$. Hence the inclusion $T \subset X$ can be written
-as the composition of the inclusion $T \subset U$ of a closed
-subset with retrocompact complement and the inclusion $U \subset X$
-which is retrocompact by our assumption on intersections of quasi-compact
-opens. Thus the lemma is a consequence of
-Lemmas \ref{lemma-quasi-compact-open-immersion-constructible-image} and
-\ref{lemma-closed-constructible-image}.
+Then $V = U \setminus T = U \cap T^c$ is retrocompact in $U$ as $T^c$
+is retrocompact in $X$. Hence $V$ is quasi-compact. Since
+the intersection of any two quasi-compact opens is quasi-compact
+any quasi-compact open of $X$ is retrocompact. Thus $T = U \cap V^c$
+with $U$ and $V = U \setminus T$ retrocompact opens of $X$.
+A fortiori, $T$ is constructible in $X$.
 \end{proof}
 
 \begin{lemma}
@@ -5270,12 +5307,13 @@ Hence we may assume that $T_i = U_i \cap V_i^c$
 with $U_i, V_i \subset X$ retrocompact open. Let $S$ be the
 finite set of closed subsets of $X$ consisting of
 $\emptyset, X, U_i^c, V_i^c$ and finite intersections of these.
-Write $S = \{Z_s\}$. If $s \in S$, then $Z_s$ is constructible
+If $Z \in S$, then $Z$ is constructible in $X$
 (Lemma \ref{lemma-constructible}).
-Moreover, $Z_s \cap Z_{s'} \in S$ for all $s, s' \in S$.
-Define a partial ordering on $S$ by inclusion. Then set
-$Y_s = Z_s \setminus \bigcup_{s' < s} Z_{s'}$
-to get the desired stratification.
+Moreover, $Z \cap Z' \in S$ for all $Z, Z' \in S$.
+Define a partial ordering on $S$ by inclusion. For $Z \in S$ set
+$X_Z = Z \setminus \bigcup_{Z' < Z,\ Z' \in S} Z'$
+to get a stratification $X = \coprod_{Z \in S} X_Z$
+satisfying the properties stated in the lemma.
 \end{proof}
 
 \begin{lemma}

@@ -3389,6 +3389,36 @@ Thus $D_i \subset X$ is an effective Cartier divisor (as this is
 a local property). Hence we can take $D = D_1 + \ldots + D_r$.
 \end{proof}
 
+\begin{lemma}
+\label{lemma-regular-ample-family}
+Let $X$ be a quasi-compact, regular scheme with affine diagonal.
+Then $X$ has an ample family of invertible modules
+(Morphisms, Definition
+\ref{morphisms-definition-family-ample-invertible-modules}.
+\end{lemma}
+
+\begin{proof}
+Observe that $X$ is a finite disjoint union of integral schemes
+(Properties, Lemmas
+\ref{properties-lemma-regular-normal} and
+\ref{properties-lemma-normal-Noetherian}).
+Thus we may assume that $X$ is integral as well as Noetherian,
+regular, and having affine diagonal. Let $x \in X$.
+Choose an affine open neighbourhood $U \subset X$ of $x$.
+Since $X$ is integral, $U$ is dense in $X$.
+By More on Algebra, Lemma \ref{more-algebra-lemma-regular-local-UFD}
+the local rings of $X$ are UFDs. Hence by Lemma
+\ref{lemma-complement-open-affine-effective-cartier-divisor-bis}
+we can find an effective Cartier divisor $D \subset X$
+whose complement is $U$. Then the canonical section
+$s = 1_D$ of $\mathcal{L} = \mathcal{O}_X(D)$,
+see Definition \ref{definition-invertible-sheaf-effective-Cartier-divisor},
+vanishes exactly along $D$ hence $U = X_s$.
+Thus both conditions in Morphisms, Definition
+\ref{morphisms-definition-family-ample-invertible-modules}
+hold and we are done.
+\end{proof}
+
 
 
 
@@ -7635,7 +7665,7 @@ $\mathcal{I} \subset \mathcal{A}$ the kernel of the canonical map
 $$
 \mathcal{A}
 \longrightarrow
-\bigoplus\nolimits_{d \geq 0} p_*\left((i_*\mathcal{O}_Z)(d)\right)
+\bigoplus\nolimits_{d \geq 0} p_*\left((i_*\mathcal{O}_Z)(d)\right).
 $$
 If $p$ is quasi-compact, then there is an isomorphism
 $Z = \underline{\text{Proj}}_S(\mathcal{A}/\mathcal{I})$.
@@ -7693,7 +7723,7 @@ Conversely, suppose that $g/f_0^e \in J$. Again we may assume $d | e$.
 Pick $i \in \{1, \ldots, n\}$. Then $Z \cap D_{+}(f_i)$ is
 cut out by some ideal $J_i \subset A_{(f_i)}$. Moreover,
 $$
-J \cdot A_{(f_0f_i)} = J_i \cdot A_{(f_0f_i)}
+J \cdot A_{(f_0f_i)} = J_i \cdot A_{(f_0f_i)}.
 $$
 The right hand side is the localization of $J_i$ with respect to
 $f_0^{\deg(f_i)}/f_i^{\deg(f_0)}$. It follows that
@@ -7703,7 +7733,7 @@ $$
 for some $e_i \gg 0$ sufficiently divisible. This proves that
 $f_0^{\max(e_i)}g$ is an element of $I$, because its restriction to each
 affine open $D_{+}(f_i)$ vanishes on the closed subscheme
-$Z \cap D_{+}(f_i)$. Hence $g \in J'$ and we conclude $J \subset J'$
+$Z \cap D_{+}(f_i)$. Hence $g/f_0^e \in J'$ and we conclude $J \subset J'$
 as desired.
 \end{proof}
 
